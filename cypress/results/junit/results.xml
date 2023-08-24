@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<testsuites>
+<testsuite name="Root Suite" timestamp="2023-08-24T13:57:45" tests="0" file="cypress/e2e/secondTest.spec.ts" time="0.000" failures="0"></testsuite>
+<testsuite name="Authentication" timestamp="2023-08-24T13:57:45" tests="1" time="6.040" failures="0">
+  
+  <testcase name="Authentication deletes a new article in a global feed" time="6.017" classname="deletes a new article in a global feed"></testcase>
+  
+</testsuite>
+
+<testsuite name="Root Suite" timestamp="2023-08-24T13:57:15" tests="0" file="cypress/e2e/firstTest.spec.ts" time="0.000" failures="0"></testsuite>
+<testsuite name="Authentication" timestamp="2023-08-24T13:57:15" tests="4" time="28.885" failures="1">
+  
+  <testcase name="Authentication verify correct req and res" time="13.612" classname="verify correct req and res"></testcase>
+  
+  <testcase name="Authentication intercepts and modifies the req and res" time="1.909" classname="intercepts and modifies the req and res"></testcase>
+  
+  <testcase name="Authentication verifies popular tags are displayed" time="1.496" classname="verifies popular tags are displayed"></testcase>
+  
+  <testcase name="Authentication verify global feed likes count" time="5.617" classname="verify global feed likes count">
+    
+    <failure message="Timed out retrying after 4050ms: expected &apos;&lt;button.btn.btn-sm.btn-primary&gt;&apos; to contain &apos;2204&apos;" type="AssertionError"><![CDATA[AssertionError: Timed out retrying after 4050ms: expected '<button.btn.btn-sm.btn-primary>' to contain '2204'
+    at Context.eval (webpack://angular-realworld/./cypress/e2e/firstTest.spec.ts:60:13)]]></failure>
+    
+  </testcase>
+  
+</testsuite>
+
+</testsuites>

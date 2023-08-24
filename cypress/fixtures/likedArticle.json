@@ -1,0 +1,19 @@
+{
+  "article": {
+    "slug": "Aneesa-1850",
+    "title": "Aneesa",
+    "description": "Description",
+    "body": "Amazing nice wonderful wow nice",
+    "tagList": [],
+    "createdAt": "2023-08-23T21:32:56.659Z",
+    "updatedAt": "2023-08-23T21:32:56.659Z",
+    "favorited": false,
+    "favoritesCount": 2203,
+    "author": {
+      "username": "CyTestUser",
+      "bio": "2222",
+      "image": "https://i.stack.imgur.com/34AD2.jpg",
+      "following": false
+    }
+  }
+}
