@@ -4,7 +4,7 @@ describe("Authentication", () => {
     cy.loginToApplication();
   });
 
-  it("verify correct req and res", () => {
+  it("SCRUM-4: verify correct req and res", () => {
     cy.intercept("POST", "https://api.realworld.io/api/articles").as(
       "postArticles"
     );
