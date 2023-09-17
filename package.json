@@ -16,7 +16,8 @@
     "cy:open_process": "npx cypress open --env username=$DB_USERNAME,password=$PASSWORD",
     "delete:reports": "rm -r cypress/results || true",
     "prereport": "npm run delete:reports",
-    "report": "cypress run --reporter cypress-multi-reporters --reporter-options configFile=reporter-config.json"
+    "report": "cypress run --reporter cypress-multi-reporters --reporter-options configFile=reporter-config.json",
+    "cypress:record": "npx cypress run --record --key 6bd922d0-161d-432e-9491-ba9a46dd322d;2D"
   },
   "engines": {
     "node": "^14.20.0 || ^16.13.0 || ^18.10.0"

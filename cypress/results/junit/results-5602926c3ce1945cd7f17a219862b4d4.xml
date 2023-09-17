@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="Mocha Tests" time="6.048" tests="1" failures="0">
-  <testsuite name="Root Suite" timestamp="2023-08-24T13:57:45" tests="0" file="cypress/e2e/secondTest.spec.ts" time="0.000" failures="0">
-  </testsuite>
-  <testsuite name="Authentication" timestamp="2023-08-24T13:57:45" tests="1" time="6.040" failures="0">
-    <testcase name="Authentication deletes a new article in a global feed" time="6.017" classname="deletes a new article in a global feed">
-    </testcase>
-  </testsuite>
-</testsuites>
