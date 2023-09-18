@@ -18,5 +18,6 @@ pipeline {
             steps {
                 sh 'npm run cypress:e2e'
             }
+       }
    }
 }
