@@ -1,12 +1,22 @@
 pipeline {
-    agent {
-        docker { image 'node:18.17.1-alpine3.18' }
-    }
-    stages {
-        stage('Test') {
+   agent any
+
+   tools {nodejs "Node12"}
+
+   environment {
+       CHROME_BIN = '/bin/google-chrome'
+      
+   }
+
+   stages {
+       stage('Dependencies') {
+           steps {
+               sh 'npm i'
+           }
+       }
+       stage('e2e Tests') {
             steps {
-                sh 'node --version'
+                sh 'npm run cypress:e2e'
             }
-        }
-    }
+   }
 }
