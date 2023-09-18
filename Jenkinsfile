@@ -1,12 +1,8 @@
 pipeline {
     agent {
         docker {
-            image 'cypress/base:18.16.0'
+            image 'cypress/base:18.14.1'
         }
-    }
-
-    triggers {
-        pollSCM '* * * * *'
     }
 
     stages {
