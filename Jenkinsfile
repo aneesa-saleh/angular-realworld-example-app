@@ -11,7 +11,10 @@ pipeline {
    stages {
        stage('Dependencies') {
            steps {
-               sh 'npm i'
+               sh '''
+               TERM=xterm-256color; export TERM
+               npm i
+               '''
            }
        }
        stage('e2e Tests') {
