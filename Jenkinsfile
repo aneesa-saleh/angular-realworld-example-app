@@ -1,26 +1,16 @@
 pipeline {
-   agent any
+    agent { dockerfile true }
 
-   tools {nodejs "node v18.17.1"}
+    stages {
 
-   environment {
-       CHROME_BIN = '/bin/google-chrome'
-      
-   }
-
-   stages {
-       stage('Dependencies') {
-           steps {
-               sh '''
-               TERM=xterm-256color; export TERM
-               npm i
-               '''
-           }
-       }
-       stage('e2e Tests') {
+        stage('build and test') {
             steps {
-                sh 'npm run cypress:e2e'
+                echo "Building and running tests..."
+                sh '''
+                npm run cypress:e2e
+                '''
+                echo "Test run complete."
             }
-       }
-   }
+        }
+    }
 }
