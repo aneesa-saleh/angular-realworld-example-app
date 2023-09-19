@@ -4,7 +4,7 @@ describe("Authentication", () => {
     cy.loginToApplication();
   });
 
-  it("SCRUM-4: verify correct req and res", () => {
+  it("will verify correct req and res - PRAC-T1", () => {
     cy.intercept("POST", "https://api.realworld.io/api/articles").as(
       "postArticles"
     );
@@ -22,7 +22,7 @@ describe("Authentication", () => {
     });
   });
 
-  it("intercepts and modifies the req and res", () => {
+  it("will intercept and modify the req and res - PRAC-T2", () => {
     cy.intercept("POST", "**/articles", (req) => {
       req.reply((res) => {
         expect(res.body.article.description).to.equal("Description");
