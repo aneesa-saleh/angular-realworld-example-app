@@ -2,21 +2,31 @@ pipeline {
     agent {
         docker {
             image 'cypress/base:18.16.1'
+            args '-u root'
         }
     }
 
     triggers {
-        cron('30 23 * * *')
+        cron('0 17 * * *')
     }
 
     stages {
+
+        stage('environment setup') {
+            steps {
+                echo "Setting up environment..."
+                sh '''
+                apt-get -y update; apt-get -y install curl
+                curl --version
+                '''
+                echo "Environment setup complete."
+            }
+        }
 
         stage('install') {
             steps {
                 echo "Installing packages..."
                 sh '''
-                apt-get -y update; apt-get -y install curl
-                curl --version
                 npm install
                 ./node_modules/.bin/cypress install
                 '''
