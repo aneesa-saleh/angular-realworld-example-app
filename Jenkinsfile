@@ -44,5 +44,18 @@ pipeline {
                 echo "Test run complete."
             }
         }
+
+        stage('publish test results') {
+            environment {
+                ZEPHYR_SCALE_TOKEN = credentials('jenkins-zephyr-scale-token')
+            }
+            steps {
+                echo "Publishing test results to zephyr..."
+                sh '''
+                ./scripts/upload_test_results_to_zephyr.sh
+                '''
+                echo "Test publish done."
+            }
+        }
     }
 }
