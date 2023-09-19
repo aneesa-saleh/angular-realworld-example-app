@@ -37,9 +37,8 @@ pipeline {
 
         stage('verify') {
             steps {
-                echo "Verifying packages and environment..."
+                echo "Verifying packages"
                 sh '''
-                curl --version
                 ./node_modules/.bin/cypress verify
                 '''
                 echo "Verification successful."
