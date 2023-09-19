@@ -12,6 +12,7 @@ pipeline {
                 echo "Installing packages..."
                 sh '''
                 npm install
+                ./node_modules/.bin/cypress install
                 '''
                 echo "Installation complete."
             }
