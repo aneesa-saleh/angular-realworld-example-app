@@ -37,7 +37,7 @@ pipeline {
 
         stage('verify') {
             steps {
-                echo "Verifying packages"
+                echo "Verifying packages..."
                 sh '''
                 ./node_modules/.bin/cypress verify
                 '''
@@ -59,6 +59,7 @@ pipeline {
             environment {
                 ZEPHYR_SCALE_TOKEN = credentials('jenkins-zephyr-scale-token')
             }
+            
             steps {
                 echo "Publishing test results to zephyr..."
                 sh '''
