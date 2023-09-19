@@ -51,9 +51,7 @@ pipeline {
             }
             steps {
                 echo "Publishing test results to zephyr..."
-                sh '''
-                ./scripts/upload_test_results_to_zephyr.sh
-                '''
+                sh './zephyr.sh'
                 echo "Test publish done."
             }
         }
