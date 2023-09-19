@@ -37,9 +37,6 @@ pipeline {
                 echo "Building and running tests..."
                 sh '''
                 npm run cypress:e2e
-                printf "\n\nJUNI RESULTS\n\n"
-                cat ./cypress/results/junit/results.xml
-                printf "\n\n"
                 '''
                 echo "Test run complete."
             }
@@ -51,11 +48,12 @@ pipeline {
             }
             steps {
                 echo "Publishing test results to zephyr..."
-                sh 'curl_alias=$(which curl)'
-                sh 'echo $curl_alias'
-                sh '$curl_alias --version'
-                sh 'chmod +x ./zephyr.sh'
-                sh './zephyr.sh'
+                sh '''
+                apt-get -y update; apt-get -y install curl
+                curl --version
+                chmod +x ./zephyr.sh
+                ./zephyr.sh
+                '''
                 echo "Test publish done."
             }
         }

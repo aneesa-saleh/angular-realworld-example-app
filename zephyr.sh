@@ -13,11 +13,7 @@ test_cycle_name="Regression Tests - $current_date"
 test_cycle_folder_id="9784070"
 test_cycle_json_body="testCycle=\"{\\\"name\\\":\\\"$test_cycle_name\\\", \\\"folderId\\\": $test_cycle_folder_id}\";type=application/json"
 
-# this is needed for when curl is not in a common location
-curl_alias=$(which curl)
-echo $curl_alias
-
-$curl_alias --location --request POST "$upload_junit_results_url" \
+curl --location --request POST "$upload_junit_results_url" \
 --header "$authorization_header" \
 --form "$file_path" \
 --form "$test_cycle_json_body"
