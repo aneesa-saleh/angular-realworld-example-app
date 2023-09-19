@@ -1,9 +1,6 @@
 pipeline {
     agent {
-        docker {
-            image 'cypress/base:18.16.1'
-            args '-u root'
-        }
+        docker { dockerfile true }
     }
 
     triggers {
@@ -11,40 +8,6 @@ pipeline {
     }
 
     stages {
-
-        stage('environment setup') {
-            steps {
-                echo "Setting up environment..."
-                sh '''
-                apt-get -y update
-                apt-get -y install curl
-                curl --version
-                '''
-                echo "Environment setup complete."
-            }
-        }
-
-        stage('install') {
-            steps {
-                echo "Installing packages..."
-                sh '''
-                npm install
-                ./node_modules/.bin/cypress install
-                '''
-                echo "Installation complete."
-            }
-        }
-
-        stage('verify') {
-            steps {
-                echo "Verifying packages..."
-                sh '''
-                ./node_modules/.bin/cypress verify
-                '''
-                echo "Packages verified."
-            }
-        }
-
         stage('build and test') {
             steps {
                 echo "Building and running tests..."
