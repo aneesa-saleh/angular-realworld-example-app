@@ -8,6 +8,28 @@ pipeline {
     }
 
     stages {
+        stage('install packages') {
+            steps {
+                echo "Installing packages..."
+                sh '''
+                npm install
+                ./node_modules/.bin/cypress install
+                '''
+                echo "Installation complete."
+            }
+        }
+
+        stage('verify') {
+            steps {
+                echo "Verifying packages and environment..."
+                sh '''
+                curl --version
+                ./node_modules/.bin/cypress verify
+                '''
+                echo "Verification successful."
+            }
+        }
+
         stage('build and test') {
             steps {
                 echo "Building and running tests..."
