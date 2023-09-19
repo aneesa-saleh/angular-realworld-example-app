@@ -1,6 +1,9 @@
 pipeline {
     agent {
-        dockerfile true
+        docker {
+            image 'cypress/base:18.16.1'
+            args '-u root'
+        }
     }
 
     triggers {
@@ -8,6 +11,19 @@ pipeline {
     }
 
     stages {
+
+        stage('environment setup') {
+            steps {
+                echo "Setting up environment..."
+                sh '''
+                apt-get -y update
+                apt-get -y install curl
+                curl --version
+                '''
+                echo "Environment setup complete."
+            }
+        }
+
         stage('install packages') {
             steps {
                 echo "Installing packages..."
