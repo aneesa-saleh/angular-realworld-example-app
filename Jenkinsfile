@@ -7,7 +7,7 @@ pipeline {
     }
 
     triggers {
-        cron('0 17 * * *')
+        cron('H 17 * * *')
     }
 
     stages {
@@ -59,7 +59,7 @@ pipeline {
             environment {
                 ZEPHYR_SCALE_TOKEN = credentials('jenkins-zephyr-scale-token')
             }
-            
+
             steps {
                 echo "Publishing test results to zephyr..."
                 sh '''
