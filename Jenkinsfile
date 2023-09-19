@@ -6,7 +6,7 @@ pipeline {
     }
 
     triggers {
-        pollSCM '*/5 * * * *'
+        cron('30 21 * * *')
     }
 
     stages {
@@ -51,7 +51,6 @@ pipeline {
             }
             steps {
                 echo "Publishing test results to zephyr..."
-                sh 'curl --version'
                 sh 'curl_alias=$(which curl)'
                 sh 'echo $curl_alias'
                 sh '$curl_alias --version'
