@@ -65,6 +65,6 @@ describe("Authentication", () => {
       );
     });
 
-    cy.get("app-article-list button").click().should("contain", "2204"); // correct: 2203
+    cy.get("app-article-list button").click().should("contain", "2203"); // wrong: 2204
   });
 });
