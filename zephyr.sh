@@ -1,3 +1,4 @@
+# Publish test results to zephyr scale
 
 authorization_header="Authorization: Bearer $ZEPHYR_SCALE_TOKEN"
 

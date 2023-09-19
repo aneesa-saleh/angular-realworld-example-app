@@ -16,7 +16,8 @@ pipeline {
             steps {
                 echo "Setting up environment..."
                 sh '''
-                apt-get -y update; apt-get -y install curl
+                apt-get -y update
+                apt-get -y install curl
                 curl --version
                 '''
                 echo "Environment setup complete."
