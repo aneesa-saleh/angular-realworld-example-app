@@ -15,6 +15,8 @@ pipeline {
             steps {
                 echo "Installing packages..."
                 sh '''
+                apt-get -y update; apt-get -y install curl
+                curl --version
                 npm install
                 ./node_modules/.bin/cypress install
                 '''
@@ -49,8 +51,6 @@ pipeline {
             steps {
                 echo "Publishing test results to zephyr..."
                 sh '''
-                apt-get -y update; apt-get -y install curl
-                curl --version
                 chmod +x ./zephyr.sh
                 ./zephyr.sh
                 '''
