@@ -51,6 +51,10 @@ pipeline {
             }
             steps {
                 echo "Publishing test results to zephyr..."
+                sh 'curl --version'
+                sh 'curl_alias=$(which curl)'
+                sh 'echo $curl_alias'
+                sh '$curl_alias --version'
                 sh 'chmod +x ./zephyr.sh'
                 sh './zephyr.sh'
                 echo "Test publish done."

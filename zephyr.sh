@@ -15,6 +15,7 @@ test_cycle_json_body="testCycle=\"{\\\"name\\\":\\\"$test_cycle_name\\\", \\\"fo
 
 # this is needed for when curl is not in a common location
 curl_alias=$(which curl)
+echo $curl_alias
 
 $curl_alias --location --request POST "$upload_junit_results_url" \
 --header "$authorization_header" \
