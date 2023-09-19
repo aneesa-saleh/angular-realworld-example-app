@@ -5,7 +5,7 @@ describe("Authentication", () => {
   });
 
   it(
-    "will verify correct req and res - PRAC-T1",
+    "WHEEL verify correct req and res - PRAC-T1",
     { browser: "firefox" },
     () => {
       cy.intercept("POST", "https://api.realworld.io/api/articles").as(
