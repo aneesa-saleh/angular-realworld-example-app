@@ -51,6 +51,7 @@ pipeline {
             }
             steps {
                 echo "Publishing test results to zephyr..."
+                sh 'chmod +x ./zephyr.sh'
                 sh './zephyr.sh'
                 echo "Test publish done."
             }
