@@ -1,10 +1,7 @@
 # Dockerfile used to run cypress tests in jenkins
 # Not specifying browsers due to issues installing them on linux/arm64
 
-ARG NODE_VERSION="18.17.1"
-ARG CYPRESS_VERSION="12.17.4"
-
-FROM cypress/factory:3.1.0
+FROM cypress/base:18.16.1
 
 # install curl
 USER root
