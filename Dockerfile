@@ -1,12 +1,12 @@
-# Args are defined in the Dockerfile before the FROM command.
-# Using these args will cause an image to be created with node (default version is 16.18.1), chrome, firefox and edge.
+# Dockerfile used to run cypress tests in jenkins
+
 ARG NODE_VERSION="18.17.1"
 ARG CYPRESS_VERSION="12.17.4"
-ARG CHROME_VERSION='116.0.5845.187'
-ARG EDGE_VERSION='117.0.2045.35'
-ARG FIREFOX_VERSION='109.0.1'
+ARG CHROME_VERSION='107.0.5304.121-1'
+ARG EDGE_VERSION='100.0.1185.29-1'
+ARG FIREFOX_VERSION='107.0'
 
-FROM cypress/factory
+FROM cypress/factory:3.1.0
 
 USER root
 RUN apt-get -y update
