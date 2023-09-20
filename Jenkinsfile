@@ -12,9 +12,10 @@ pipeline {
         stage('install packages') {
             steps {
                 echo "Installing packages..."
-                sh 'pnpm install'
-                echo "Verifying..."
-                sh 'cypress verify'
+                sh '''
+                npm install
+                ./node_modules/.bin/cypress verify
+                '''
                 echo "Installation complete."
             }
         }
