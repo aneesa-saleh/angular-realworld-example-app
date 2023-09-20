@@ -1,10 +1,8 @@
 # Dockerfile used to run cypress tests in jenkins
+# Not specifying browsers due to issues installing them on linux/arm64
 
 ARG NODE_VERSION="18.17.1"
 ARG CYPRESS_VERSION="12.17.4"
-ARG CHROME_VERSION='107.0.5304.121-1'
-ARG EDGE_VERSION='100.0.1185.29-1'
-ARG FIREFOX_VERSION='107.0'
 
 FROM cypress/factory:3.1.0
 
