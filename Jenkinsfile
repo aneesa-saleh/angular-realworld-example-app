@@ -1,9 +1,5 @@
 pipeline {
-    agent {
-        docker {
-            image 'cypress/included:12.17.4'
-        }
-    }
+    agent { dockerfile true }
 
     triggers {
         cron('H 17 * * *')
