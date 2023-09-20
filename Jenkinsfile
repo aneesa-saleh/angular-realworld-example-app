@@ -1,5 +1,10 @@
 pipeline {
-    agent { dockerfile true }
+    agent {
+        docker {
+            image 'cypress/base:18.16.1'
+            args '-u root'
+        }
+    }
 
     triggers {
         cron('H 17 * * *')
@@ -8,6 +13,17 @@ pipeline {
     options { buildDiscarder(logRotator(numToKeepStr: '7')) }
 
     stages {
+
+        stage('environment setup') {
+            steps {
+                sh '''
+                    apt-get -y update
+                    apt-get -y install curl
+                    corepack enable
+                    corepack prepare pnpm@latest-8 --activate
+                '''
+            }
+        }
 
         stage('install packages') {
             steps {
