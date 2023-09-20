@@ -1,10 +1,5 @@
 pipeline {
-    agent {
-        docker {
-            image 'cypress/base:18.16.1'
-            args '-u root'
-        }
-    }
+    agent { dockerfile true }
 
     triggers {
         cron('H 17 * * *')
@@ -14,25 +9,12 @@ pipeline {
 
     stages {
 
-        stage('environment setup') {
-            steps {
-                sh '''
-                    apt-get -y update
-                    apt-get -y install curl
-                    corepack enable
-                    corepack prepare pnpm@latest-8 --activate
-                '''
-            }
-        }
-
         stage('install packages') {
             steps {
                 echo "Installing packages..."
-                sh '''
-                pnpm install
-                ./node_modules/.bin/cypress install
-                ./node_modules/.bin/cypress verify
-                '''
+                sh 'pnpm install'
+                echo "Verifying..."
+                sh 'cypress verify'
                 echo "Installation complete."
             }
         }
