@@ -10,7 +10,7 @@ junit_xml_file_path="cypress/results/junit/results.xml\""
 file_path="file=@\"$junit_xml_file_path\""
 
 current_date=$(date +"%d-%m-%Y %T")
-test_cycle_name="Regression Tests - $current_date"
+test_cycle_name="Regression Tests ($BROWSER) - $current_date"
 test_cycle_folder_id="9784070"
 test_cycle_json_body="testCycle=\"{\\\"name\\\":\\\"$test_cycle_name\\\", \\\"folderId\\\": $test_cycle_folder_id}\";type=application/json"
 
