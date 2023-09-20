@@ -1,5 +1,8 @@
 pipeline {
-    agent { dockerfile true }
+    agent {
+        dockerfile true
+        args '-u root'
+    }
 
     triggers {
         cron('H 17 * * *')
