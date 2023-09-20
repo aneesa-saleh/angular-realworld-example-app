@@ -13,7 +13,7 @@ pipeline {
             steps {
                 echo "Installing packages..."
                 sh '''
-                npm install
+                pnpm install
                 ./node_modules/.bin/cypress verify
                 '''
                 echo "Installation complete."
