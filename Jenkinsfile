@@ -1,7 +1,10 @@
 pipeline {
     agent {
-        dockerfile true
-        args '-u root'
+        docker {
+            dockerfile true
+            args '-u root'
+        }
+        
     }
 
     triggers {
