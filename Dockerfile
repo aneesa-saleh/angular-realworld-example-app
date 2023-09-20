@@ -6,6 +6,12 @@ ARG CYPRESS_VERSION="12.17.4"
 
 FROM cypress/factory:3.1.0
 
+# install curl
 USER root
 RUN apt-get -y update
 RUN apt-get -y install curl
+
+# install pnpm
+RUN corepack enable
+RUN corepack prepare pnpm@latest-8 --activate
+RUN pnpm install
