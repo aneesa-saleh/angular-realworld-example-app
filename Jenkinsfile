@@ -15,6 +15,8 @@ pipeline {
                 sh 'ls'
                 // folder created when executing install in dockerfile
                 sh 'cd /app'
+                sh 'pwd'
+                sh 'ls'
                 sh 'npm run cypress:e2e'
                 echo "Test run complete."
             }
