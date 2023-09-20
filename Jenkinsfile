@@ -12,6 +12,8 @@ pipeline {
         stage('install packages') {
             steps {
                 echo "Installing packages..."
+                sh 'corepack enable'
+                sh 'corepack prepare pnpm@latest-8 --activate'
                 sh 'pnpm install'
                 echo "Verifying..."
                 sh 'cypress verify'
