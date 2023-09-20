@@ -9,9 +9,3 @@ FROM cypress/factory:3.1.0
 USER root
 RUN apt-get -y update
 RUN apt-get -y install curl
-
-RUN mkdir /app
-WORKDIR /app
-COPY . /app
-RUN npm install
-RUN cypress verify
