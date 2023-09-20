@@ -5,6 +5,8 @@ pipeline {
         cron('H 17 * * *')
     }
 
+    options { buildDiscarder(logRotator(numToKeepStr: '7')) }
+
     stages {
 
         stage('install packages') {
