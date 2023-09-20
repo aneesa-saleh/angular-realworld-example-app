@@ -9,19 +9,12 @@ pipeline {
 
     stages {
 
-        stage('install packages') {
-            steps {
-                echo "Installing packages..."
-                sh 'npm install'
-                echo "Verifying..."
-                sh 'cypress verify'
-                echo "Installation complete."
-            }
-        }
-
         stage('build and test') {
             steps {
                 echo "Building project and running tests..."
+                sh 'ls'
+                // folder created when executing install in dockerfile
+                sh 'cd /app'
                 sh 'npm run cypress:e2e'
                 echo "Test run complete."
             }
